@@ -1,5 +1,7 @@
 import Question from './Question';
 
+
+
 class Quiz {
 
   static DEFAULT_QUIZ_LENGTH = 2;
@@ -29,9 +31,15 @@ class Quiz {
   }
 
   gameScoreHistory() {
-    
+    if (this.unasked.length < 1 && active === false) {
+      this.scoreHistory.push(this.score);
+    }
   }
 
+  highScore() {
+    console.log(Math.max(...this.scoreHistory));
+    return Math.max(...this.scoreHistory);
+  }
 }
 
  
