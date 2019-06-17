@@ -10,15 +10,29 @@ class Quiz {
     // Array of Question instances
     this.asked = [];
     this.active = false;
-
-    // TASK: Add more props here per the exercise
-
+    this.score = 0;
+    this.scoreHistory= [];
   }
 
-  // Example method:
   startGame() {
     this.active = true;
   }
+
+  questionAsked() {
+    this.unasked.forEach(function(elem, index) { this.unasked.splice(index, 1); this.asked.push(elem); });
+  }
+
+  quizScore() {
+    if (Question.answerStatus() === 1) {
+      this.score += 1;
+    }
+  }
+
+  gameScoreHistory() {
+    
+  }
+
 }
 
+ 
 export default Quiz;
